@@ -1,0 +1,14 @@
+streamlit
+pandas
+numpy
+scikit-learn
+firebase-admin
+pyrebase4
+streamlit-lottie
+matplotlib
+seaborn
+plotly
+scipy
+pycryptodome
+setuptools
+streamlit-option-menu
