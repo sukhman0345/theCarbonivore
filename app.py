@@ -1,12 +1,11 @@
 import streamlit as st
-import time
 import json
 from streamlit_lottie import st_lottie
 from signin import signin
 from signup import signup
 from menuBar import main_app
 
-# Function to load local Lottie JSON
+# Load local Lottie file
 def load_lottiefile(filepath: str):
     with open(filepath, "r") as file:
         return json.load(file)
@@ -17,26 +16,23 @@ def splash_screen():
     st_lottie(lottie_data, speed=1, loop=True, quality="high")
     st.markdown("<h2 style='text-align:center;'>Loading The Carbonivore...</h2>", unsafe_allow_html=True)
 
-# Main app logic
 def main():
-    # Only set splash_start ONCE
-    if "splash_start" not in st.session_state:
-        st.session_state.splash_start = time.time()
-
-    elapsed = time.time() - st.session_state.splash_start
-
-    if elapsed < 2:  # Show splash for 2 seconds
+    # Show splash only once
+    if "splash_shown" not in st.session_state:
+        st.session_state.splash_shown = True
         splash_screen()
+        st.stop()  # Stop here so nothing else runs this time
+
+    # After splash, go to app
+    if st.session_state.get('user'):
+        main_app()
     else:
-        if st.session_state.get('user'):
-            main_app()
+        st.sidebar.title("Signin/Signup")
+        auth_choice = st.sidebar.radio("Select", ["Sign In", "Sign Up"])
+        if auth_choice == "Sign In":
+            signin()
         else:
-            st.sidebar.title("Signin/Signup")
-            auth_choice = st.sidebar.radio("Select", ["Sign In", "Sign Up"])
-            if auth_choice == "Sign In":
-                signin()
-            else:
-                signup()
+            signup()
 
 if __name__ == "__main__":
     main()
