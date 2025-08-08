@@ -19,11 +19,13 @@ def splash_screen():
 
 # Main app logic
 def main():
+    # Only set splash_start ONCE
     if "splash_start" not in st.session_state:
         st.session_state.splash_start = time.time()
 
-    # Show splash for 2 seconds
-    if time.time() - st.session_state.splash_start < 2:
+    elapsed = time.time() - st.session_state.splash_start
+
+    if elapsed < 2:  # Show splash for 2 seconds
         splash_screen()
     else:
         if st.session_state.get('user'):
