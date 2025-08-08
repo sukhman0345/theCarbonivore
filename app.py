@@ -17,6 +17,11 @@ def splash_screen():
     st_lottie(lottie_data, speed=1, loop=True, quality="high")
     st.markdown("<h2 style='text-align:center;'>Loading The Carbonivore...</h2>", unsafe_allow_html=True)
     time.sleep(2)  # Show for 2 seconds
+    st.markdown("""
+        <p style="text-align: center; color: gray;">
+            Made with ❤️ by sukhman.singh.codes
+        </p>
+    """, unsafe_allow_html=True)
     st.session_state.splash_done = True
     st.rerun()  # Move on automatically
 
