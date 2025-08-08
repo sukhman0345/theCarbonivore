@@ -1,5 +1,6 @@
 import streamlit as st
 import json
+import time
 from streamlit_lottie import st_lottie
 from signin import signin
 from signup import signup
@@ -15,13 +16,13 @@ def splash_screen():
     lottie_data = load_lottiefile("splash.json")
     st_lottie(lottie_data, speed=1, loop=True, quality="high")
     st.markdown("<h2 style='text-align:center;'>Loading The Carbonivore...</h2>", unsafe_allow_html=True)
+    time.sleep(2)  # Show for 2 seconds
+    st.session_state.splash_done = True
+    st.rerun()  # Move on automatically
 
 def main():
-    # Show splash only once
-    if "splash_shown" not in st.session_state:
-        st.session_state.splash_shown = True
+    if "splash_done" not in st.session_state:
         splash_screen()
-        st.stop()  # Stop here so nothing else runs this time
 
     # After splash, go to app
     if st.session_state.get('user'):
