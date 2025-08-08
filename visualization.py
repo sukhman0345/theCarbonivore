@@ -22,6 +22,9 @@ def show_visualization():
         st.error("⚠️ The file 'the_Catbonivore.csv' was not found. Please place it in the same directory as your Streamlit script.")
         return
 
+    st.subheader("Cleaned Null Values")
+    st.write(df.isnull().sum())
+
     st.subheader("Data preview")
     st.dataframe(df)
 
