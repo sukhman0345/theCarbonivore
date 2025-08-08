@@ -21,7 +21,7 @@ def splash_screen():
             Made with ❤️ by sukhman.singh.codes
         </p>
     """, unsafe_allow_html=True)
-    time.sleep(2)  # Show for 2 seconds
+    time.sleep(3)  # Show for 2 seconds
     st.session_state.splash_done = True
     st.rerun()  # Move on automatically
 
