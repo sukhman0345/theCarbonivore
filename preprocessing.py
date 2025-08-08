@@ -16,7 +16,7 @@ def show_preprocessing():
     st.markdown("---")
 
     try:
-        df = pd.read_csv("../the_Carbonivore.csv")
+        df = pd.read_csv("the_Carbonivore.csv")
 
         st.subheader("🔎 First 5 Rows of Data")
         st.dataframe(df.head())

@@ -17,7 +17,7 @@ def show_visualization():
 
     # Load CSV directly
     try:
-        df = pd.read_csv("../the_Carbonivore.csv")
+        df = pd.read_csv("the_Carbonivore.csv")
     except FileNotFoundError:
         st.error("⚠️ The file 'the_Catbonivore.csv' was not found. Please place it in the same directory as your Streamlit script.")
         return
