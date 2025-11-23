@@ -12,3 +12,4 @@ scipy
 pycryptodome
 setuptools
 streamlit-option-menu
+google-generativeai
