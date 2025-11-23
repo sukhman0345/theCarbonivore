@@ -2,19 +2,13 @@ import streamlit as st
 import pandas as pd
 import os
 import json
-from streamlit_lottie import st_lottie
 
 def load_lottiefile(filepath: str):
     with open(filepath, "r") as f:
         return json.load(f)
 
 def show_preprocessing():
-    st.title("🧼 Pre-processing Overview")
-    lottie_preprocessing = load_lottiefile("data_preprocessing.json")
-    st_lottie(lottie_preprocessing, speed=1, reverse=False, loop=True, quality="high", width=300)
-
-    st.markdown("---")
-
+      
     try:
         df = pd.read_csv("the_Carbonivore.csv")
 
@@ -56,7 +50,6 @@ def show_preprocessing():
     """, unsafe_allow_html=True)
 
 
-        #st.success("✅ Pre-processing successfully displayed.")
     except FileNotFoundError:
         st.error("⚠️ 'Agrofood_co2_emission.csv' file not found.")
         st.write("📂 Current directory files:", os.listdir())

@@ -3,7 +3,7 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 import json
-from streamlit_lottie import st_lottie
+# from streamlit_lottie import st_lottie
 import io
 
 # Load Lottie animation
@@ -16,17 +16,17 @@ def show_visualization():
     st.set_page_config(page_title="Carbonivore Dashboard", layout="wide")
     st.title("📊 Visualization of Data")
 
-    # Load animation
-    lottie_preprocessing = load_lottiefile("analytics.json")
-    st_lottie(
-        lottie_preprocessing,
-        speed=1,
-        reverse=False,
-        loop=True,
-        quality="high",
-        width=300,
-        height=300
-    )
+    # # Load animation
+    # lottie_preprocessing = load_lottiefile("analytics.json")
+    # st_lottie(
+    #     lottie_preprocessing,
+    #     speed=1,
+    #     reverse=False,
+    #     loop=True,
+    #     quality="high",
+    #     width=300,
+    #     height=300
+    # )
 
     # Load CSV
     DATA_FILE = "cleaned_data.csv"

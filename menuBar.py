@@ -3,6 +3,7 @@ from streamlit_option_menu import option_menu
 from about import show_about
 from visualization import show_visualization
 from touch import get_in_touch
+from chatbot import show_chatbot
 from  preprocessing import show_preprocessing
 
 def main_app():
@@ -25,8 +26,8 @@ def main_app():
     # Horizontal menu
     selected = option_menu(
         menu_title="The Carbonivore",
-        options=["About","Pre-Processing","Visualization", "Get In Touch"],
-        icons=["house","funnel", "search", "patch-question-fill"],
+        options=["About","Pre-Processing","Visualization", "Get In Touch", "Chatbot"],
+        icons=["house","funnel", "search", "patch-question-fill", "robot"],
         menu_icon="cast",
         default_index=0,
         orientation="horizontal",
@@ -41,4 +42,6 @@ def main_app():
         show_visualization()
     elif selected == "Get In Touch":
         get_in_touch()
+    elif selected == "Chatbot":
+        show_chatbot()    
         
